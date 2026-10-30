@@ -253,6 +253,7 @@ static int e4attr_usage(const char * program_name) {
 }
 
 int e4attr_main(int argc, char ** argv) {
+    (void)argc;
     const char * program_name = argv[0], * dev_path = NULL;
     e4attr_extent_op apply_op = E4_EXTENT_UNKNOWN_OP;
     bool allow_opts = true;
@@ -298,6 +299,7 @@ int e4attr_main(int argc, char ** argv) {
 #else /* !(defined(FT_HAVE_LIBEXT2FS) && defined(FT_HAVE_LIBCOM_ERR)) */
 
 int e4attr_main(int argc, char ** argv) {
+    (void)argc;
     const char * program_name = argv[0];
 
     ff_log(FC_ERROR, 0, "%s: this program is a NOT functional because it was compiled without -lext2fs -lcom_err", program_name);

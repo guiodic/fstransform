@@ -79,6 +79,9 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
+/* Define to 1 if you have the `ioctl' function. */
+#undef HAVE_IOCTL
+
 /* Define to 1 if "prealloc" I/O is supported" */
 #undef HAVE_IO_PREALLOC
 
@@ -121,9 +124,6 @@
 
 /* Define to 1 if you have the `memmove' function. */
 #undef HAVE_MEMMOVE
-
-/* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
 
 /* Define to 1 if you have the `memset' function. */
 #undef HAVE_MEMSET
@@ -199,6 +199,12 @@
 
 /* Define to 1 if `d_secsize' is a member of `struct disklabel'. */
 #undef HAVE_STRUCT_DISKLABEL_D_SECSIZE
+
+/* Define to 1 if `fsx_projid' is a member of `struct fsxattr'. */
+#undef HAVE_STRUCT_FSXATTR_FSX_PROJID
+
+/* Define to 1 if `fsx_xflags' is a member of `struct fsxattr'. */
+#undef HAVE_STRUCT_FSXATTR_FSX_XFLAGS
 
 /* Define to 1 if `st_atimensec' is a member of `struct stat'. */
 #undef HAVE_STRUCT_STAT_ST_ATIMENSEC
@@ -327,7 +333,9 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
-/* Define to 1 if you have the ANSI C header files. */
+/* Define to 1 if all of the C90 standard headers exist (not just the ones
+   required in a freestanding environment). This macro is provided for
+   backward compatibility; new code need not use it. */
 #undef STDC_HEADERS
 
 /* Version number of package */
@@ -361,7 +369,7 @@
 /* Define to `long int' if <sys/types.h> does not define. */
 #undef off_t
 
-/* Define to `int' if <sys/types.h> does not define. */
+/* Define as a signed integer type capable of holding a process identifier. */
 #undef pid_t
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
