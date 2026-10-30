@@ -51,7 +51,7 @@ public:
     { }
 
     /** assignment operator */
-    virtual const ft_cache<K,V> & operator=(const ft_cache<K,V> & other)
+    ft_cache<K,V> & operator=(const ft_cache<K,V> & other)
     {
     	if (this != &other)
             zero_payload = other.zero_payload;

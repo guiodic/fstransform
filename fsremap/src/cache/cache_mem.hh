@@ -66,11 +66,13 @@ public:
     { }
 
     /** assignment operator */
-    virtual const super_type & operator=(const ft_cache_mem<K,V> & other)
+    ft_cache_mem<K,V> & operator=(const ft_cache_mem<K,V> & other)
     {
-        if (this != &other)
+        if (this != &other) {
             map = other.map;
-        return super_type::operator=(other);
+            super_type::operator=(other);
+        }
+        return *this;
     }
 
     /** destructor */

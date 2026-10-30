@@ -3817,11 +3817,11 @@ if test x$ac_prog_cxx_stdcxx = xno
 then :
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $CXX option to enable C++11 features" >&5
 printf %s "checking for $CXX option to enable C++11 features... " >&6; }
-if test ${ac_cv_prog_cxx_11+y}
+if test ${ac_cv_prog_cxx_cxx11+y}
 then :
   printf %s "(cached) " >&6
 else $as_nop
-  ac_cv_prog_cxx_11=no
+  ac_cv_prog_cxx_cxx11=no
 ac_save_CXX=$CXX
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
@@ -3863,11 +3863,11 @@ if test x$ac_prog_cxx_stdcxx = xno
 then :
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $CXX option to enable C++98 features" >&5
 printf %s "checking for $CXX option to enable C++98 features... " >&6; }
-if test ${ac_cv_prog_cxx_98+y}
+if test ${ac_cv_prog_cxx_cxx98+y}
 then :
   printf %s "(cached) " >&6
 else $as_nop
-  ac_cv_prog_cxx_98=no
+  ac_cv_prog_cxx_cxx98=no
 ac_save_CXX=$CXX
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
@@ -4117,7 +4117,46 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 # Checks for compiler characteristics
 
 
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether $CXX accepts -Wall" >&5
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for C++ standard flag" >&5
+printf %s "checking for C++ standard flag... " >&6; }
+if test ${ac_cv_cxx_std_flag+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  ac_cv_cxx_std_flag=none
+     for flag in -std=c++17 -std=c++14 -std=c++11 -std=c++0x; do
+       save_CXXFLAGS="$CXXFLAGS"
+       CXXFLAGS="$CXXFLAGS $flag"
+       cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+
+int
+main (void)
+{
+
+        return 0;
+
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_cxx_try_compile "$LINENO"
+then :
+  ac_cv_cxx_std_flag="$flag"
+       break
+else $as_nop
+  CXXFLAGS="$save_CXXFLAGS"
+
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam conftest.$ac_ext
+     done
+
+fi
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_cv_cxx_std_flag" >&5
+printf "%s\n" "$ac_cv_cxx_std_flag" >&6; }
+
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether $CXX accepts -Wall" >&5
 printf %s "checking whether $CXX accepts -Wall... " >&6; }
 if test ${ac_cv_cxx_flag_Wall+y}
 then :

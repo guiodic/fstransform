@@ -58,10 +58,13 @@ public:
     { }
 
     /** assignment operator */
-    virtual const super_type & operator=(const this_type & other)
+    this_type & operator=(const this_type & other)
     {
-        mixin_type::operator=(other);
-        return super_type::operator=(other);
+        if (this != &other) {
+            mixin_type::operator=(other);
+            super_type::operator=(other);
+        }
+        return *this;
     }
 
     /** destructor */
